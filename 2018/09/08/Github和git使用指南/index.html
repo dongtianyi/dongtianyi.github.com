@@ -5,15 +5,19 @@
   
 
   
-  <title>Archives | Hexo</title>
+  <title>Github和git使用指南 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="Q1：从github fork一个repos，这个时候如果upstream新建了一个branch，如何将这个branch同步到自己的repos里面:  与upstream同步 从upstream checkout一个新的local branch 推送新的本地分支到 远程 origin里面  1. git fetch upstream 2. git checkout -b &amp;lt;new_branc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Github和git使用指南">
+<meta property="og:url" content="http://yoursite.com/2018/09/08/Github和git使用指南/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Q1：从github fork一个repos，这个时候如果upstream新建了一个branch，如何将这个branch同步到自己的repos里面:  与upstream同步 从upstream checkout一个新的local branch 推送新的本地分支到 远程 origin里面  1. git fetch upstream 2. git checkout -b &amp;lt;new_branc">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-08T09:02:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Github和git使用指南">
+<meta name="twitter:description" content="Q1：从github fork一个repos，这个时候如果upstream新建了一个branch，如何将这个branch同步到自己的repos里面:  与upstream同步 从upstream checkout一个新的local branch 推送新的本地分支到 远程 origin里面  1. git fetch upstream 2. git checkout -b &amp;lt;new_branc">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,59 +64,60 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/09/08/Github和git使用指南/" class="archive-article-date">
-  <time datetime="2018-09-08T08:54:23.000Z" itemprop="datePublished">Sep 8</time>
+        <section id="main"><article id="post-Github和git使用指南" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/08/Github和git使用指南/" class="article-date">
+  <time datetime="2018-09-08T08:54:23.000Z" itemprop="datePublished">2018-09-08</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/08/Github和git使用指南/">Github和git使用指南</a>
+    <h1 class="article-title" itemprop="name">
+      Github和git使用指南
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/09/08/hello-world/" class="archive-article-date">
-  <time datetime="2018-09-08T07:13:34.000Z" itemprop="datePublished">Sep 8</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/08/hello-world/">Hello World</a>
-    </h1>
-  
-
-    </header>
+        <p>Q1：从github fork一个repos，这个时候如果upstream新建了一个branch，如何将这个branch同步到自己的repos里面:</p>
+<ol>
+<li>与upstream同步</li>
+<li>从upstream checkout一个新的local branch</li>
+<li>推送新的本地分支到 远程 origin里面</li>
+</ol>
+<pre><code>1. git fetch upstream
+2. git checkout -b &lt;new_branch&gt; upstream/&lt;new_branch&gt;
+3. git push -u origin &lt;new_branch&gt;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/08/Github和git使用指南/" data-id="cjlt7burq0000t6tfv72vxl2k" class="article-share-link">Share</a>
+      
+      
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/09/08/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         
