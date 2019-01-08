@@ -5,18 +5,19 @@
   
 
   
-  <title>归档: 2018/9 | 飞向未来</title>
+  <title>阿里云容器服务 | 飞向未来</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="想去1000年后的世界">
-<meta property="og:type" content="website">
-<meta property="og:title" content="飞向未来">
-<meta property="og:url" content="http://www.dongtianyi.com/archives/2018/09/index.html">
+  <meta name="description" content="启动阿里云集群:入口为容器服务 创建一个应用 docker-compose  version: ‘2’services:  backend:    image: ‘registry.cn-beijing.aliyuncs.com/sparrow_hg/backend:test’    command:   - gunicorn   - hg_backend.wsgi   - &amp;apos;-b&amp;a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿里云容器服务">
+<meta property="og:url" content="http://www.dongtianyi.com/2018/10/10/阿里云容器服务设置/index.html">
 <meta property="og:site_name" content="飞向未来">
-<meta property="og:description" content="想去1000年后的世界">
+<meta property="og:description" content="启动阿里云集群:入口为容器服务 创建一个应用 docker-compose  version: ‘2’services:  backend:    image: ‘registry.cn-beijing.aliyuncs.com/sparrow_hg/backend:test’    command:   - gunicorn   - hg_backend.wsgi   - &amp;apos;-b&amp;a">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-10T03:40:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="飞向未来">
-<meta name="twitter:description" content="想去1000年后的世界">
+<meta name="twitter:title" content="阿里云容器服务">
+<meta name="twitter:description" content="启动阿里云集群:入口为容器服务 创建一个应用 docker-compose  version: ‘2’services:  backend:    image: ‘registry.cn-beijing.aliyuncs.com/sparrow_hg/backend:test’    command:   - gunicorn   - hg_backend.wsgi   - &amp;apos;-b&amp;a">
   
     <link rel="alternate" href="/atom.xml" title="飞向未来" type="application/atom+xml">
   
@@ -67,59 +68,77 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/09/08/Github和git使用指南/" class="archive-article-date">
-  <time datetime="2018-09-08T08:54:23.000Z" itemprop="datePublished">9月 8</time>
+        <section id="main"><article id="post-阿里云容器服务设置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/10/阿里云容器服务设置/" class="article-date">
+  <time datetime="2018-10-09T16:00:00.000Z" itemprop="datePublished">2018-10-10</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/08/Github和git使用指南/">Github和git使用指南</a>
+    <h1 class="article-title" itemprop="name">
+      阿里云容器服务
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/09/08/hello-world/" class="archive-article-date">
-  <time datetime="2018-09-08T07:13:34.000Z" itemprop="datePublished">9月 8</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/08/hello-world/">Hello World</a>
-    </h1>
-  
-
-    </header>
+        <ol>
+<li>启动阿里云集群:入口为容器服务</li>
+<li>创建一个应用</li>
+<li>docker-compose</li>
+</ol>
+<p>version: ‘2’<br>services:<br>  backend:<br>    image: ‘registry.cn-beijing.aliyuncs.com/sparrow_hg/backend:test’<br>    command:</p>
+<pre><code>  - gunicorn
+  - hg_backend.wsgi
+  - &apos;-b&apos;
+  - &apos;0.0.0.0:8001&apos;
+  - &apos;-w&apos;
+  - &apos;2&apos;
+  - &apos;--timeout=1000&apos;
+ports:
+  - &apos;8001&apos;
+environment:
+  - RUN_ENV=test
+restart: always
+labels:
+  aliyun.scale: &apos;5&apos;
+  aliyun.routing.port_8001: backend5.dongyouliang.com
+kernel_memory: 0
+memswap_reservation: 0
+shm_size: 0
+memswap_limit: 0
+name: backend
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.dongtianyi.com/2018/10/10/阿里云容器服务设置/" data-id="cjqnkkwyn0002z8s61i7u5ka3" class="article-share-link">Share</a>
+      
+      
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/09/08/Github和git使用指南/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Github和git使用指南</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         

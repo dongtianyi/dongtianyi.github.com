@@ -69,6 +69,68 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-阿里云容器服务设置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/10/阿里云容器服务设置/" class="article-date">
+  <time datetime="2018-10-09T16:00:00.000Z" itemprop="datePublished">2018-10-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/10/阿里云容器服务设置/">阿里云容器服务</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>启动阿里云集群:入口为容器服务</li>
+<li>创建一个应用</li>
+<li>docker-compose</li>
+</ol>
+<p>version: ‘2’<br>services:<br>  backend:<br>    image: ‘registry.cn-beijing.aliyuncs.com/sparrow_hg/backend:test’<br>    command:</p>
+<pre><code>  - gunicorn
+  - hg_backend.wsgi
+  - &apos;-b&apos;
+  - &apos;0.0.0.0:8001&apos;
+  - &apos;-w&apos;
+  - &apos;2&apos;
+  - &apos;--timeout=1000&apos;
+ports:
+  - &apos;8001&apos;
+environment:
+  - RUN_ENV=test
+restart: always
+labels:
+  aliyun.scale: &apos;5&apos;
+  aliyun.routing.port_8001: backend5.dongyouliang.com
+kernel_memory: 0
+memswap_reservation: 0
+shm_size: 0
+memswap_limit: 0
+name: backend
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.dongtianyi.com/2018/10/10/阿里云容器服务设置/" data-id="cjqnkkwyn0002z8s61i7u5ka3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Github和git使用指南" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/09/08/Github和git使用指南/" class="article-date">
@@ -104,7 +166,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.dongtianyi.com/2018/09/08/Github和git使用指南/" data-id="cjqnkj8rh0002y7s68memb3kc" class="article-share-link">Share</a>
+      <a data-url="http://www.dongtianyi.com/2018/09/08/Github和git使用指南/" data-id="cjqnkkwyg0000z8s6zmsblryq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -149,7 +211,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.dongtianyi.com/2018/09/08/hello-world/" data-id="cjqnkj8rd0001y7s6iwz8bbvm" class="article-share-link">Share</a>
+      <a data-url="http://www.dongtianyi.com/2018/09/08/hello-world/" data-id="cjqnkkwyl0001z8s6j6hcdsti" class="article-share-link">Share</a>
       
       
     </footer>
@@ -177,7 +239,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li></ul>
     </div>
   </div>
 
@@ -188,6 +250,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/10/10/阿里云容器服务设置/">阿里云容器服务</a>
+          </li>
         
           <li>
             <a href="/2018/09/08/Github和git使用指南/">Github和git使用指南</a>
