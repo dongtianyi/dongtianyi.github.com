@@ -69,10 +69,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-阿里云容器服务设置" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-microservice" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/10/10/阿里云容器服务设置/" class="article-date">
-  <time datetime="2018-10-09T16:00:00.000Z" itemprop="datePublished">2018-10-10</time>
+    <a href="/2019/01/08/microservice/" class="article-date">
+  <time datetime="2019-01-07T16:00:00.000Z" itemprop="datePublished">2019-01-08</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/10/阿里云容器服务设置/">阿里云容器服务</a>
+      <a class="article-title" href="/2019/01/08/microservice/">微服务实践</a>
     </h1>
   
 
@@ -91,38 +91,39 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li>启动阿里云集群:入口为容器服务</li>
-<li>创建一个应用</li>
-<li>docker-compose</li>
+        <h4 id="微服务概念"><a href="#微服务概念" class="headerlink" title="微服务概念"></a>微服务概念</h4><ol>
+<li>什么是微服务?</li>
+<li>微服务解决什么问题?</li>
 </ol>
-<p>`version: ‘2’<br>services:<br>  backend:<br>    image: ‘registry.cn-beijing.aliyuncs.com/sparrow_hg/backend:test’<br>    command:</p>
-<pre><code>  - gunicorn
-  - hg_backend.wsgi
-  - &apos;-b&apos;
-  - &apos;0.0.0.0:8001&apos;
-  - &apos;-w&apos;
-  - &apos;2&apos;
-  - &apos;--timeout=1000&apos;
-ports:
-  - &apos;8001&apos;
-environment:
-  - RUN_ENV=test
-restart: always
-labels:
-  aliyun.scale: &apos;5&apos;
-  aliyun.routing.port_8001: backend5.dongyouliang.com
-kernel_memory: 0
-memswap_reservation: 0
-shm_size: 0
-memswap_limit: 0
-name: backend
-</code></pre><p>`</p>
+<h4 id="微服务运维"><a href="#微服务运维" class="headerlink" title="微服务运维"></a>微服务运维</h4><ol>
+<li>负载均衡</li>
+<li>服务注册与发现</li>
+<li>服务网关</li>
+<li>日志</li>
+<li>高可用</li>
+<li>服务内部调用(HTTP/RPC)</li>
+<li>配置中心</li>
+</ol>
+<p>技术选型, 每一个技术栈都涉及到了很多可选项, 并没有通用的规则:</p>
+<ol>
+<li>服务网关: kong 或者 nginx-ingress<br>2.</li>
+</ol>
+<h4 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h4><p>所有服务运行与 k8s 集群之上,所以选择使用了 EFK 作为之日采集方案!<br>EFK: es+fluent bit+kinbana<br>fluent bit 的配置:</p>
+<pre><code>[PARSER]
+    Name        docker
+    Format      json
+    Time_Key    time
+    Time_Format %Y-%m-%dT%H:%M:%S.%L
+    Time_Keep   On
+    # Command      |    Decoder    | Field | Optional Action
+    # =============|=======================|=================
+    Decode_Field_As   json   log
+</code></pre><p>中文处理需要使用 json 的 Decoder,否则中文会被忽略掉</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.dongtianyi.com/2018/10/10/阿里云容器服务设置/" data-id="cjqnktq7w00000ws6jy0x5qsh" class="article-share-link">Share</a>
+      <a data-url="http://www.dongtianyi.com/2019/01/08/microservice/" data-id="cjqqj7z800000ews6byp2kdxn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -167,7 +168,7 @@ name: backend
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.dongtianyi.com/2018/09/08/Github和git使用指南/" data-id="cjqnktq8400020ws6r1cocbm1" class="article-share-link">Share</a>
+      <a data-url="http://www.dongtianyi.com/2018/09/08/Github和git使用指南/" data-id="cjqqj7z8c0002ews6f567hrl5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -212,7 +213,7 @@ name: backend
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.dongtianyi.com/2018/09/08/hello-world/" data-id="cjqnktq8200010ws6wiweh0d7" class="article-share-link">Share</a>
+      <a data-url="http://www.dongtianyi.com/2018/09/08/hello-world/" data-id="cjqqj7z890001ews6s10gt3ag" class="article-share-link">Share</a>
       
       
     </footer>
@@ -240,7 +241,7 @@ name: backend
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li></ul>
     </div>
   </div>
 
@@ -253,7 +254,7 @@ name: backend
       <ul>
         
           <li>
-            <a href="/2018/10/10/阿里云容器服务设置/">阿里云容器服务</a>
+            <a href="/2019/01/08/microservice/">微服务实践</a>
           </li>
         
           <li>
